@@ -1,5 +1,33 @@
 # Information
 
+## Run
+
+Makefile executions:
+
+- `version`: Shows current project version.
+
+```shell
+make version
+```
+
+- `build`: Builds the project.
+
+```shell
+make build
+```
+
+- `run`: Builds & runs the project.
+
+```shell
+make run
+```
+
+- `run-only`: Runs a pre-built project.
+
+```shell
+make run-only
+```
+
 ## Endpoints
 
 ### App
