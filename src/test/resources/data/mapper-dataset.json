@@ -1,0 +1,45 @@
+{
+  "bars": [
+    {
+      "id": 1,
+      "detail": "Sample detail 1",
+      "anyDates": [
+        "2023-05-12",
+        "2024-01-01",
+        "2024-06-18"
+      ]
+    },
+    {
+      "id": 2,
+      "detail": "Sample detail 2",
+      "anyDates": [
+        "2022-07-23",
+        "2023-11-15"
+      ]
+    },
+    {
+      "id": 3,
+      "detail": "Sample detail 3",
+      "anyDates": [
+        "2025-03-30"
+      ]
+    },
+    {
+      "id": 4,
+      "detail": "Sample detail 4",
+      "anyDates": [
+        "2025-03-30"
+      ]
+    },
+    {
+      "id": 5,
+      "detail": "Sample detail 5",
+      "anyDates": [
+        "2020-12-31",
+        "2021-08-09",
+        "2023-03-15",
+        "2024-10-10"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+name: Push
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+permissions: read-all
+
+jobs:
+  release:
+    permissions:
+      contents: write
+    runs-on: ubuntu-24.04
+    name: Release
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Release
+        uses: quike/action-semantic-release@v1.0.2
+        with:
+          token: ${{ secrets.GHTOKEN }}
+          debug-mode: true
+          dry-run: false
+          default-config-enabled: true
+    outputs:
+      version: ${{ env.VERSION}}
+      git-head: ${{ steps.release.outputs.git-head }}
+
+  build:
+    runs-on: ubuntu-24.04
+    name: Build
+    needs: release
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '23'
+      - name: Cache Maven packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-maven-
+      - name: Build
+        run: |
+          ./mvnw spotless:check verify -B -Drevision=${{ needs.release.outputs.version }}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <JsonLayout complete="false" compact="true" eventEol="true" properties="true">
+        <KeyValuePair key="userName" value="${ctx:userName}"/>
+      </JsonLayout>
+    </Console>
+  </Appenders>
+  <Loggers>
+    <Logger name="net.quike.examples" additivity="false" level="INFO">
+      <AppenderRef ref="Console"/>
+    </Logger>
+    <Logger name="com.aol.crs" additivity="false" level="INFO">
+      <AppenderRef ref="Console"/>
+    </Logger>
+    <Root level="WARN">
+      <AppenderRef ref="Console"/>
+    </Root>
+  </Loggers>
+</Configuration>

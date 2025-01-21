@@ -1,0 +1,65 @@
+server:
+  servlet:
+    context-path: "/api"
+  port: 8080
+  ssl:
+    enabled: false
+  compression:
+    enabled: true
+    mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
+    min-response-size: 1024
+  error:
+    include-stacktrace: always
+    include-message: always
+
+management:
+  server:
+    port: 8128
+    ssl:
+      enabled: false
+  endpoints:
+    web:
+      base-path: ${server.servlet.context-path}/actuator
+      exposure:
+        include: info,health,metrics,mappings,prometheus
+      cors:
+        allowed-origins: "*"
+  endpoint:
+    info:
+      enabled: true
+  metrics.distribution.percentiles-histogram.http.server.requests: true
+  tracing.sampling.probability: 1.0
+
+spring:
+  main:
+    banner-mode: off
+  profiles:
+    active: "dev"
+  application:
+    name: example-java-api
+
+springdoc:
+  title: "API"
+  version: '@revision@'
+  api-docs:
+    groups:
+      enabled: true
+  swagger-ui:
+    display-request-duration: true
+    groups-order: DESC
+    operationsSorter: method
+    disable-swagger-default-url: true
+    use-root-path: true
+  show-actuator: false
+  group-configs:
+    - group: api
+      paths-to-match: /**
+      paths-to-exclude: /actuator/**
+
+downstream:
+  api:
+    base:
+      url: http://127.0.0.1
+    common:
+      param: FOOBAR
+
