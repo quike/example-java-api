@@ -2,16 +2,12 @@
 <Configuration>
   <Appenders>
     <Console name="Console" target="SYSTEM_OUT">
-      <JsonLayout complete="false" compact="true" eventEol="true" properties="true">
-        <KeyValuePair key="userName" value="${ctx:userName}"/>
-      </JsonLayout>
+      <PatternLayout
+        pattern="%style{%d{ISO8601}}{black} %highlight{%-5level }[%style{%t}{bright,blue}] %style{%C{1}}{bright,yellow}: %msg%n%throwable" />
     </Console>
   </Appenders>
   <Loggers>
     <Logger name="net.quike.examples" additivity="false" level="INFO">
-      <AppenderRef ref="Console"/>
-    </Logger>
-    <Logger name="com.aol.crs" additivity="false" level="INFO">
       <AppenderRef ref="Console"/>
     </Logger>
     <Root level="WARN">

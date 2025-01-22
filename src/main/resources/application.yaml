@@ -34,9 +34,12 @@ spring:
   main:
     banner-mode: off
   profiles:
-    active: "dev"
+    active: dev
   application:
     name: example-java-api
+
+logging:
+  config: classpath:log4j2-${spring.profiles.active}.xml
 
 springdoc:
   title: "API"
