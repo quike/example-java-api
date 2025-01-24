@@ -61,8 +61,7 @@ springdoc:
 
 downstream:
   api:
-    base:
-      url: http://127.0.0.1
-    common:
-      param: FOOBAR
-
+    base-url: http://127.0.0.1
+    common-param: FOOBAR
+    resource-paths:
+      bar-path: /bars

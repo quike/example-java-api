@@ -30,9 +30,6 @@
     <mapstruct.version>1.6.2</mapstruct.version>
     <jose4j.version>0.9.6</jose4j.version>
     <springdoc.version>2.6.0</springdoc.version>
-    <!--Official plugins-->
-    <maven-surefire-plugin.version>3.5.1</maven-surefire-plugin.version>
-    <maven-failsafe-plugin-version>${maven-surefire-plugin.version}</maven-failsafe-plugin-version>
     <!--3rd party plugins-->
     <git-commit-id-plugin.version>9.0.1</git-commit-id-plugin.version>
     <jacoco-plugin-version>0.8.12</jacoco-plugin-version>
@@ -290,7 +287,10 @@
                     <excludes>
                       <exclude>net.quike.examples.Application</exclude>
                       <exclude>net.quike.examples.service.FooService</exclude>
+                      <exclude>net.quike.examples.config.ApplicationConfig</exclude>
                       <exclude>net.quike.examples.config.ApplicationJacksonBeanFactory</exclude>
+                      <exclude>net.quike.examples.config.ApplicationProperties</exclude>
+                      <exclude>net.quike.examples.config.ApplicationProperties.ResourcePaths</exclude>
                       <exclude>net.quike.examples.config.ApplicationRestTemplateFactory</exclude>
                       <exclude>net.quike.examples.repository.BarRepository</exclude>
                       <exclude>net.quike.examples.controller.FooController</exclude>

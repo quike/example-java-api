@@ -23,12 +23,12 @@ import org.springframework.web.util.UriComponentsBuilder;
 public class BarRepository extends CommonRepository {
   private final ApplicationProperties properties;
   private final RestTemplate restTemplate;
-
-  private static final String ENDPOINT = "/bars";
+  private final String resourcePath;
 
   public BarRepository(ApplicationProperties properties, RestTemplate restTemplate) {
     this.properties = properties;
     this.restTemplate = restTemplate;
+    this.resourcePath = properties.getResourcePaths().barPath();
   }
 
   /**
@@ -70,7 +70,7 @@ public class BarRepository extends CommonRepository {
     }
 
     var uriBuilder =
-        UriComponentsBuilder.fromUriString(StringUtils.join(properties.getBaseUrl(), ENDPOINT))
+        UriComponentsBuilder.fromUriString(StringUtils.join(properties.getBaseUrl(), resourcePath))
             .queryParam(COMMON_PARAM, properties.getCommonParam());
 
     return uriBuilder.build().toUri();

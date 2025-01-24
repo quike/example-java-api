@@ -10,10 +10,6 @@ endif
 version:
 	@echo "Version: $(VERSION)"
 
-.PHONY: config
-config:
-	jq -r '.dependencies | keys | join(" ")' < package.json | xargs npm install save-dev --verbose
-
 .PHONY: build
 build:
 	@echo "Build"
@@ -27,3 +23,8 @@ run-only:
 .PHONY: run
 run: build run-only
 	@echo "Run"
+
+.PHONY: format
+format:
+		@echo "Format"
+		./mvnw spotless:apply -B -Drevision=$(VERSION)

@@ -5,8 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import net.quike.examples.repository.BarRepository;
 import net.quike.examples.service.FooService;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
@@ -14,18 +13,8 @@ import org.springframework.web.client.RestTemplate;
 @Getter
 @Setter
 @Configuration
+@EnableConfigurationProperties(ApplicationProperties.class)
 public class ApplicationConfig {
-  @Value("${downstream.api.base.url}")
-  private String baseUrl;
-
-  @Value("${downstream.api.common.param}")
-  private String commonParam;
-
-  @Bean("applicationProperties")
-  @ConditionalOnMissingBean
-  public ApplicationProperties applicationProperties() {
-    return ApplicationProperties.builder().baseUrl(baseUrl).commonParam(commonParam).build();
-  }
 
   @Bean("objectMapper")
   public ObjectMapper objectMapper() {
