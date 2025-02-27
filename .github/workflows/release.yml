@@ -22,7 +22,7 @@ jobs:
       - name: Release
         uses: quike/action-semantic-release@v2.0.1
         env:
-          token: ${{ secrets.GHTOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GHTOKEN }}
         with:
           debug-mode: true
           dry-run: false
