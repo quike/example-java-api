@@ -28,7 +28,7 @@ jobs:
           dry-run: false
           default-config-enabled: true
     outputs:
-      version: ${{ steprs.release.outputs.release-version }}
+      version: ${{ steps.release.outputs.release-version }}
       git-head: ${{ steps.release.outputs.release-git-head }}
 
   build:
