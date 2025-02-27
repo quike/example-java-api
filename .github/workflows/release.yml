@@ -20,15 +20,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Release
-        uses: quike/action-semantic-release@v1.0.2
-        with:
+        uses: quike/action-semantic-release@v2.0.1
+        env:
           token: ${{ secrets.GHTOKEN }}
+        with:
           debug-mode: true
           dry-run: false
           default-config-enabled: true
     outputs:
-      version: ${{ env.VERSION}}
-      git-head: ${{ steps.release.outputs.git-head }}
+      version: ${{ steprs.release.outputs.release-version }}
+      git-head: ${{ steps.release.outputs.release-git-head }}
 
   build:
     runs-on: ubuntu-24.04
@@ -40,8 +41,8 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
-          java-version: '23'
+          distribution: "temurin"
+          java-version: "23"
       - name: Cache Maven packages
         uses: actions/cache@v4
         with:

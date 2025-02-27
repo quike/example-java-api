@@ -16,13 +16,6 @@
         "preset": "conventionalcommits"
       }
     ],
-    "@semantic-release/github",
-    [
-      "@semantic-release/exec",
-      {
-        "publishCmd": "echo 'VERSION=${nextRelease.version}' >> $GITHUB_ENV",
-        "verifyReleaseCmd": "echo ${nextRelease.version} > .VERSION"
-      }
-    ]
-  ]
+    "@semantic-release/github"
+   ]
 }
