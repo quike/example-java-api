@@ -33,7 +33,7 @@
     <!--3rd party plugins-->
     <git-commit-id-plugin.version>9.0.1</git-commit-id-plugin.version>
     <jacoco-plugin-version>0.8.13</jacoco-plugin-version>
-    <spotless.version>2.44.3</spotless.version>
+    <spotless.version>2.44.4</spotless.version>
     <google-java-format.version>1.24.0</google-java-format.version>
     <wagon-ssh-external.version>3.5.3</wagon-ssh-external.version>
   </properties>
