@@ -23,7 +23,7 @@ jobs:
     needs: release
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Verify
         run: |
           echo "release-published: ${{ needs.release.outputs.release-published }}"
