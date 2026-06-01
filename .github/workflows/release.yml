@@ -27,14 +27,13 @@ jobs:
       - name: Verify
         run: |
           echo "release-published: ${{ needs.release.outputs.release-published }}"
-          echo "release-git-head: ${{ needs.release.outputs.release-version }}"
+          echo "release-version: ${{ needs.release.outputs.release-version }}"
           echo "release-major: ${{ needs.release.outputs.release-major }}"
           echo "release-minor: ${{ needs.release.outputs.release-minor }}"
           echo "release-patch: ${{ needs.release.outputs.release-patch }}"
           echo "release-type: ${{ needs.release.outputs.release-type }}"
           echo "release-git-head: ${{ needs.release.outputs.release-git-head }}"
           echo "release-git-tag: ${{ needs.release.outputs.release-git-tag }}"
-          echo "release-version: ${{ needs.release.outputs.release-version }}"
       - name: Set up JDK
         uses: actions/setup-java@v5
         with:
