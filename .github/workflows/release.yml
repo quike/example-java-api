@@ -14,7 +14,7 @@ jobs:
   release:
     permissions:
       contents: write
-    uses: quike/workflow-github/.github/workflows/release.yml@v1
+    uses: quike/workflow-github/.github/workflows/release.yml@v1.85
     secrets: inherit
 
   build:
@@ -34,6 +34,7 @@ jobs:
           echo "release-type: ${{ needs.release.outputs.release-type }}"
           echo "release-git-head: ${{ needs.release.outputs.release-git-head }}"
           echo "release-git-tag: ${{ needs.release.outputs.release-git-tag }}"
+          echo "release-version: ${{ needs.release.outputs.release-version }}"
       - name: Set up JDK
         uses: actions/setup-java@v5
         with:
