@@ -14,7 +14,7 @@ jobs:
   release:
     permissions:
       contents: write
-    uses: quike/workflow-github/.github/workflows/release.yml@v1
+    uses: quike/workflow-github/.github/workflows/release.yml@v1.85
     secrets: inherit
 
   build:
@@ -27,7 +27,7 @@ jobs:
       - name: Verify
         run: |
           echo "release-published: ${{ needs.release.outputs.release-published }}"
-          echo "release-git-head: ${{ needs.release.outputs.release-version }}"
+          echo "release-version: ${{ needs.release.outputs.release-version }}"
           echo "release-major: ${{ needs.release.outputs.release-major }}"
           echo "release-minor: ${{ needs.release.outputs.release-minor }}"
           echo "release-patch: ${{ needs.release.outputs.release-patch }}"
